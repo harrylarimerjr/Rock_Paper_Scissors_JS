@@ -23,41 +23,70 @@
             
             function playRound(playerSelection, computerSelection) {
                 
-                if (playerChoice === computerSelection) {
-                    return "It's a draw!";
+                if (playerSelection === computerSelection) {
+                    return 0; //Draw
                 }
-                else if (playerChoice === "rock" && computerSelection === "paper") {
-                    return "The computer wins!";
+                else if (playerSelection === "rock" && computerSelection === "paper") {
+                    return 2; //Computer wins
                 }
-                else if (playerChoice === "rock" && computerSelection === "scissors") {
-                    return "You win!"
+                else if (playerSelection === "rock" && computerSelection === "scissors") {
+                    return 1; //User wins
                 }
-                else if (playerChoice === "paper" && computerSelection === "rock") {
-                    return "You win!"
+                else if (playerSelection === "paper" && computerSelection === "rock") {
+                    return 1;
                 }
-                else if (playerChoice === "paper" && computerSelection === "scissors") {
-                    return "The computer wins!"
+                else if (playerSelection === "paper" && computerSelection === "scissors") {
+                    return 2;
                 }
-                else if (playerChoice === "scissors" && computerSelection === "rock") {
-                    return "The computer wins!"
+                else if (playerSelection === "scissors" && computerSelection === "rock") {
+                    return 2;
                 }
-                else if (playerChoice === "scissors" && computerSelection === "paper") {
-                    return "You win!"
+                else if (playerSelection === "scissors" && computerSelection === "paper") {
+                    return 1;
                 }
                 
             }
             
             function game() {
+                let userWins = 0;
+                let computerWins = 0;
                 for (let i = 0; i < 5; i++) {
-                    //TODO: add game code
+                    let userSelection = getUserChoice();
+                    let computerSelection = getComputerChoice();
+                    let roundResult = playRound(userSelection, computerSelection);
+                    if (roundResult === 0) {
+                        console.log("It's a draw!");
+                        --i;
+                    }
+                    else if (roundResult === 1) {
+                        console.log("You win!");
+                        userWins++;
+                    }
+                    else if (roundResult === 2) {
+                        console.log("The computer wins!");
+                        computerWins++;
+                    }
+                }
+                console.log("\n\n----------------------------------------");
+                console.log("RESULTS");
+                console.log("----------------------------------------");
+                console.log(`You won ${userWins} rounds.`);
+                console.log(`The computer won ${computerWins} rounds.`)
+                if (userWins > computerWins) {
+                    console.log("You win!");
+                    return 1;
+                }
+                else {
+                    console.log("The computer wins!")
+                    return 2;
                 }
             }
 
-            function getUserInput() {
+            function getUserChoice() {
                 let validInput = false;
                 let userInput = "";
                 while (validInput === false) {
-                    let userInput = prompt("Enter \"rock,\" \"paper,\" or \"scissors.\"");
+                    userInput = prompt("Enter \"rock,\" \"paper,\" or \"scissors.\"");
                     userInput = userInput.toLowerCase();
                     validInput = validateInput(userInput);
                     if (validInput === false) {
@@ -78,7 +107,33 @@
                 }
             }
 
-            getUserInput();
+            function playAgain() {
+                let userSelection = prompt("Would you like to play again? (y/n)");
+                if (userSelection === "y" || userSelection === "Y") {
+                    console.log("\n\n----------------------------------------");
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            let userTotal = 0;
+            let computerTotal = 0;
+
+            do {
+                let gameResult = game();
+                if (gameResult === 1) {
+                    ++userTotal;
+                }
+                else if (gameResult === 2) {
+                    ++ computerTotal;
+                }
+            } while (playAgain());
+
+            console.log("Thanks for playing! Here is the final score.");
+            console.log("User: " + userTotal + " wins");
+            console.log("Computer: " + computerTotal + " wins");
 
         </script>
     </body>
