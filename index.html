@@ -9,7 +9,6 @@
         <script>
             function getComputerChoice() {
                 let computerSelection = Math.floor(Math.random() * 3) + 1;
-                console.log(computerSelection);
 
                 if (computerSelection === 1) {
                     return "rock";
@@ -23,8 +22,7 @@
             }
             
             function playRound(playerSelection, computerSelection) {
-                playerChoice = playerSelection.toLowerCase();
-
+                
                 if (playerChoice === computerSelection) {
                     return "It's a draw!";
                 }
@@ -48,6 +46,39 @@
                 }
                 
             }
+            
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    //TODO: add game code
+                }
+            }
+
+            function getUserInput() {
+                let validInput = false;
+                let userInput = "";
+                while (validInput === false) {
+                    let userInput = prompt("Enter \"rock,\" \"paper,\" or \"scissors.\"");
+                    userInput = userInput.toLowerCase();
+                    validInput = validateInput(userInput);
+                    if (validInput === false) {
+                        console.log("Please enter a valid answer.");
+                    }
+                }
+                return userInput;
+            }
+
+            function validateInput(userString) {
+                if (userString === "rock" ||
+                    userString === "paper" ||
+                    userString === "scissors") {
+                        return true;
+                    }
+                else {
+                    return false;
+                }
+            }
+
+            getUserInput();
 
         </script>
     </body>
