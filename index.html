@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rock, Paper, Scissors</title>
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+        <script>
+            function getComputerChoice() {
+                let computerSelection = Math.floor(Math.random() * 3) + 1;
+                console.log(computerSelection);
+
+                if (computerSelection === 1) {
+                    return "rock";
+                }
+                else if (computerSelection === 2) {
+                    return "paper";
+                }
+                else if (computerSelection === 3) {
+                    return "scissors";
+                }
+            }
+            
+            function playRound(playerSelection, computerSelection) {
+                playerChoice = playerSelection.toLowerCase();
+
+                if (playerChoice === computerSelection) {
+                    return "It's a draw!";
+                }
+                else if (playerChoice === "rock" && computerSelection === "paper") {
+                    return "The computer wins!";
+                }
+                else if (playerChoice === "rock" && computerSelection === "scissors") {
+                    return "You win!"
+                }
+                else if (playerChoice === "paper" && computerSelection === "rock") {
+                    return "You win!"
+                }
+                else if (playerChoice === "paper" && computerSelection === "scissors") {
+                    return "The computer wins!"
+                }
+                else if (playerChoice === "scissors" && computerSelection === "rock") {
+                    return "The computer wins!"
+                }
+                else if (playerChoice === "scissors" && computerSelection === "paper") {
+                    return "You win!"
+                }
+                
+            }
+
+        </script>
+    </body>
+
+</html>
