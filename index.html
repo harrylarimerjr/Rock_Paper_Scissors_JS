@@ -84,10 +84,12 @@
 
             function getUserChoice() {
                 let validInput = false;
-                let userInput = "";
+                let userInput = "initString";
                 while (validInput === false) {
                     userInput = prompt("Enter \"rock,\" \"paper,\" or \"scissors.\"");
-                    userInput = userInput.toLowerCase();
+                    if (userInput !== null) {
+                        userInput = userInput.toLowerCase();
+                    }
                     validInput = validateInput(userInput);
                     if (validInput === false) {
                         console.log("Please enter a valid answer.");
@@ -131,6 +133,7 @@
                 }
             } while (playAgain());
 
+            console.log("\n\n----------------------------------------");
             console.log("Thanks for playing! Here is the final score.");
             console.log("User: " + userTotal + " wins");
             console.log("Computer: " + computerTotal + " wins");
