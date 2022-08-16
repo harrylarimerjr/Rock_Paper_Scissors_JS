@@ -1,144 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>Rock, Paper, Scissors</title>
         <meta charset="utf-8">
+        <script src="javascript.js" defer></script>
     </head>
     
     <body>
-        <script>
-            function getComputerChoice() {
-                let computerSelection = Math.floor(Math.random() * 3) + 1;
 
-                if (computerSelection === 1) {
-                    return "rock";
-                }
-                else if (computerSelection === 2) {
-                    return "paper";
-                }
-                else if (computerSelection === 3) {
-                    return "scissors";
-                }
-            }
-            
-            function playRound(playerSelection, computerSelection) {
-                
-                if (playerSelection === computerSelection) {
-                    return 0; //Draw
-                }
-                else if (playerSelection === "rock" && computerSelection === "paper") {
-                    return 2; //Computer wins
-                }
-                else if (playerSelection === "rock" && computerSelection === "scissors") {
-                    return 1; //User wins
-                }
-                else if (playerSelection === "paper" && computerSelection === "rock") {
-                    return 1;
-                }
-                else if (playerSelection === "paper" && computerSelection === "scissors") {
-                    return 2;
-                }
-                else if (playerSelection === "scissors" && computerSelection === "rock") {
-                    return 2;
-                }
-                else if (playerSelection === "scissors" && computerSelection === "paper") {
-                    return 1;
-                }
-                
-            }
-            
-            function game() {
-                let userWins = 0;
-                let computerWins = 0;
-                for (let i = 0; i < 5; i++) {
-                    let userSelection = getUserChoice();
-                    let computerSelection = getComputerChoice();
-                    let roundResult = playRound(userSelection, computerSelection);
-                    if (roundResult === 0) {
-                        console.log("It's a draw!");
-                        --i;
-                    }
-                    else if (roundResult === 1) {
-                        console.log("You win!");
-                        userWins++;
-                    }
-                    else if (roundResult === 2) {
-                        console.log("The computer wins!");
-                        computerWins++;
-                    }
-                }
-                console.log("\n\n----------------------------------------");
-                console.log("RESULTS");
-                console.log("----------------------------------------");
-                console.log(`You won ${userWins} rounds.`);
-                console.log(`The computer won ${computerWins} rounds.`)
-                if (userWins > computerWins) {
-                    console.log("You win!");
-                    return 1;
-                }
-                else {
-                    console.log("The computer wins!")
-                    return 2;
-                }
-            }
+        <div id="title">
+            <h1 id="titleText">Rock, Paper, Scissors</h1>
+        </div>
 
-            function getUserChoice() {
-                let validInput = false;
-                let userInput = "initString";
-                while (validInput === false) {
-                    userInput = prompt("Enter \"rock,\" \"paper,\" or \"scissors.\"");
-                    if (userInput !== null) {
-                        userInput = userInput.toLowerCase();
-                    }
-                    validInput = validateInput(userInput);
-                    if (validInput === false) {
-                        console.log("Please enter a valid answer.");
-                    }
-                }
-                return userInput;
-            }
+        <ul class="scores">
+            <li id="playerScore">Player: 0</li>
+            <li id="computerScore">Computer: 0</li>
+        </ul>
 
-            function validateInput(userString) {
-                if (userString === "rock" ||
-                    userString === "paper" ||
-                    userString === "scissors") {
-                        return true;
-                    }
-                else {
-                    return false;
-                }
-            }
+        <div class="btnContainer" id="btn">
+            <button class="buttons" id="rockBtn">Rock</button>
+            <button class="buttons" id="paperBtn">Paper</button>
+            <button class="buttons" id="scissorsBtn">Scissors</button>
+        </div>
 
-            function playAgain() {
-                let userSelection = prompt("Would you like to play again? (y/n)");
-                if (userSelection === "y" || userSelection === "Y") {
-                    console.log("\n\n----------------------------------------");
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
+        <div id="computerSelection">
+            <div id="computerSelectTitle">The Computer Chose:</div>
+            <div id="computerChoice">
+                <button class="compContainer" id="compRockBtn">Rock</button>
+                <button class="compContainer" id="compPaperBtn">Paper</button>
+                <button class="compContainer" id="compScissorsBtn">Scissors</button>
+            </div>
+        </div>
 
-            let userTotal = 0;
-            let computerTotal = 0;
+        <div id="textLog">
+            <p id="logTitle">Results</p>
+            <p id="rpsLog"></p>
+        </div>
 
-            do {
-                let gameResult = game();
-                if (gameResult === 1) {
-                    ++userTotal;
-                }
-                else if (gameResult === 2) {
-                    ++ computerTotal;
-                }
-            } while (playAgain());
+        <div class="resetDiv">
+            <button id="resetBtn">Reset</button>
+        </div>
 
-            console.log("\n\n----------------------------------------");
-            console.log("Thanks for playing! Here is the final score.");
-            console.log("User: " + userTotal + " wins");
-            console.log("Computer: " + computerTotal + " wins");
-
-        </script>
+    
     </body>
 
 </html>

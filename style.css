@@ -1,0 +1,135 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#title {
+    height: auto;
+    width: auto;
+    background-color: rgb(233, 152, 233);
+    margin: 0px;
+    text-align: center;
+    padding: 50px;
+    border: 10px solid purple;
+}
+
+#titleText {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-size: 50px;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px 20px 50px;
+}
+
+.buttons {
+    display: flex;
+    padding: 50px;
+    font-size: 25px;
+    width: 200px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+#computerSelectTitle {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#computerChoice {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 50px 20px 50px;
+}
+
+.compContainer {
+    display: flex;
+    font-size: 25px;
+    width: 200px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    pointer-events: none;
+    background-color: #ffffff;
+    border: solid black;
+}
+
+#textLog {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(211, 211, 211);
+    min-height: 70px;
+    width: auto;
+    margin: 25px;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 2px solid black;
+}
+
+#logTitle {
+    align-self: center;
+    width: 200px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: rgb(153, 153, 153);
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.scores {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    margin: 10px;
+    font-size: 35px;
+}
+
+#rpsLog {
+    margin: 0;
+}
+
+.winHead {
+    display: flex;
+    justify-content: center;
+    border: 3px solid red;
+    font-size: 50px;
+    padding: 20px;
+}
+
+.resetDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin: 50px 25px 50px 0px;
+}
+
+#resetBtn {
+    padding: 15px;
+    font-size: 15px;
+}
+
+.btnClicked {
+    background-color: rgb(190, 254, 190);
+}
+
+.computerRedSelect {
+    background-color: #fcacac;
+}
