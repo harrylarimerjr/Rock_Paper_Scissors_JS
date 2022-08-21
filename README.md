@@ -1,9 +1,11 @@
 # rock_paper_scissors_js
 
-Created by Harry Larimer
-harrylarimerjr@gmail.com
-Created as part of the Odin Project cirriculum
-www.theodinproject.com
+Created by Harry Larimer<br />
+harrylarimerjr@gmail.com<br />
+Created as part of the Odin Project cirriculum<br />
+www.theodinproject.com<br />
+
+A live demo can be found [here](https://harrylarimerjr.github.io/rock_paper_scissors_js/).
 
 This simple webpage plays rock paper scissors with the user using    
 buttons and JavaScript functionality. It uses a random number
